@@ -1,7 +1,13 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.widgets import Slider
-from diffraction import single_slit_diffraction_intensity
+
+def single_slit_diffraction_intensity (slit_width, wavelength, screen_distance, X):
+  """
+    Takes in slit_width, wavelength, screen distance and a numpy array X(an array of distances from the center).
+    Outputs an array of normalized intensities corresponding to X.
+  """
+  return ((np.sin((np.pi*slit_width*X)/(wavelength*screen_distance)))/((np.pi*slit_width*X)/(wavelength*screen_distance)))**2
 
 X = np.arange(-0.005,0.005,0.00001)
 
